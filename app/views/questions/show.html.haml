@@ -1,0 +1,3 @@
+%h1.ui.header= @question.question
+%h3.ui.header Created by #{@question.number}
+= button_to "Claim this Question", claim_question_path(@question.id), class: "ui button"

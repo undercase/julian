@@ -1,0 +1,6 @@
+- if @questions.length > 0
+  .ui.list
+    - @questions.each do |question|
+      %a.item{href: question_path(question.id)}= question.question
+- else
+  %h1.ui.header There are no questions!

@@ -1,0 +1,6 @@
+%h1.ui.header= @question.question
+= form_for @question, as: :question, url: answer_question_path(@question.id), method: :post, html: { class: "ui form" } do |f|
+  .field
+    = f.label :answer
+    = f.text_area :answer
+  = f.submit "Answer Question", class: "ui button"
