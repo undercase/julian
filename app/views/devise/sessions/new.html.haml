@@ -1,0 +1,21 @@
+%h2 Log in
+= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "ui form" }) do |f|
+  .ui.grid{style: 'max-width: 500px; margin: auto;'}
+    .row.field
+      .four.wide.middle.aligned.column
+        = f.label :email
+      .twelve.wide.column
+        = f.email_field :email, autofocus: true
+    .row.field
+      .four.wide.middle.aligned.column
+        = f.label :password
+      .twelve.wide.column
+        = f.password_field :password, autocomplete: "off"
+    - if devise_mapping.rememberable?
+      .row.field
+        .middle.aligned.column
+          = f.check_box :remember_me
+          = f.label :remember_me
+  .actions
+    = f.submit "Log in", class: "ui button"
+= render "devise/shared/links"
