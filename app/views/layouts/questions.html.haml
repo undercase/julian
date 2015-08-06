@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %meta{content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type'}/
+    %title Result - Easy HW Help
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag 'questions', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag 'questions', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    .ui.menu
+      .item
+        = image_tag 'peeyr.png', class: 'ui tiny image'
+      = link_to 'Result', root_path, { class: 'ui item' }
+      = link_to 'Open Questions', questions_path, { class: 'ui item' }
+      - if @current_question
+        = link_to 'Your Question', write_question_path(@current_question.id), { class: 'ui item' }
+      .right.menu
+        = link_to 'Account', edit_user_registration_path, { class: 'ui item' }
+        = link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'ui item'
+    .ui.site.container
+      = yield
+

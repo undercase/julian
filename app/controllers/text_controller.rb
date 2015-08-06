@@ -8,8 +8,9 @@ class TextController < TwilioController
       if asker.answered
         response = create_response("If you'd like to ask another question, text it to me ending with '?'!")
         asker.claimed, asker.answered = false, false
-        asker.ready = true
+        asker.ready = false
         asker.question = nil
+        asker.answer = nil
         asker.save
       elsif asker.question
         response = create_response("Please wait patiently for the answer to your question! We're working on it right now.")
