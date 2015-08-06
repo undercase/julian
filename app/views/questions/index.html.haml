@@ -1,6 +1,18 @@
-- if @questions.length > 0
-  .ui.list
-    - @questions.each do |question|
-      %a.item{href: question_path(question.id)}= question.question
-- else
-  %h1.ui.header There are no questions!
+.ui.center.aligned.segment
+  .ui.vertically.divided.grid
+    .row
+      .column
+        %h1.ui.center.aligned.header Open Questions
+    - if @questions.length > 0
+      .row
+        .column
+          .ui.three.cards
+            - @questions.each do |question|
+              %a.ui.card{href: question_path(question.id)}
+                .content
+                  .question.header= question.question
+                  .meta Asked by #{question.number}
+    - else
+      .row
+        .column
+          %h3.ui.center.aligned.header There are no questions available! Reload the page to check for more.

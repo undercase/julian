@@ -1,21 +1,18 @@
-%h2 Log in
+%h2.ui.header Log in
 = form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "ui form" }) do |f|
-  .ui.grid{style: 'max-width: 500px; margin: auto;'}
+  .ui.grid{style: 'max-width: 400px; margin: auto;'}
     .row.field
-      .four.wide.middle.aligned.column
-        = f.label :email
-      .twelve.wide.column
-        = f.email_field :email, autofocus: true
+      .sixteen.wide.column
+        = f.email_field :email, autofocus: true, placeholder: 'Email'
     .row.field
-      .four.wide.middle.aligned.column
-        = f.label :password
-      .twelve.wide.column
-        = f.password_field :password, autocomplete: "off"
+      .sixteen.wide.column
+        = f.password_field :password, autocomplete: "off", placeholder: 'Password'
     - if devise_mapping.rememberable?
       .row.field
         .middle.aligned.column
-          = f.check_box :remember_me
-          = f.label :remember_me
+          .ui.checkbox
+            = f.check_box :remember_me
+            = f.label :remember_me
   .actions
-    = f.submit "Log in", class: "ui button"
+    = f.submit "Log in", class: "ui inverted button", style: "margin-bottom: 1rem;"
 = render "devise/shared/links"

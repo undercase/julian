@@ -1,6 +1,15 @@
-%h1.ui.header= @question.question
-= form_for @question, as: :question, url: answer_question_path(@question.id), method: :post, html: { class: "ui form" } do |f|
-  .field
-    = f.label :answer
-    = f.text_area :answer
-  = f.submit "Answer Question", class: "ui button"
+.ui.center.aligned.segment
+  .ui.vertically.divided.grid
+    .row
+      .column
+        %h1.center.aligned.ui.header= @current_question.question
+        %h3.center.aligned.ui.header Asked by #{@current_question.number}
+    .row
+      .column
+        = form_for @current_question, as: :question, url: answer_question_path(@current_question.id), method: :post, html: { class: "ui form" } do |f|
+          .field
+            %h3.ui.header Answer
+            = f.text_area :answer
+          = f.submit "Answer Question", class: "ui inverted red button"
+          .ui.horizontal.divider{style: 'max-width: 200px; margin: auto; margin-top: 1rem; margin-bottom: 1rem;'} Or
+        = button_to 'Unclaim Question', cancel_question_path(@current_question.id), method: :delete, class: "ui inverted red button"
