@@ -2,17 +2,27 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Result
+    %title Peeyr Instant
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
     .ui.menu
-      .item
-        = link_to root_path do
+      - if user_signed_in?
+        .item
           = image_tag 'peeyr.png', class: 'ui tiny image'
-      .right.menu
-        = link_to 'Sign Up', new_user_registration_path, { class: 'ui item' }
-        = link_to 'Sign In', new_user_session_path, { class: 'ui item' }
+        = link_to 'Open Questions', questions_path, { class: 'ui item' }
+        - if @current_question
+          = link_to 'Your Question', write_question_path(@current_question.id), { class: 'ui item' }
+        .right.menu
+          = link_to 'Account', edit_user_registration_path, { class: 'ui item' }
+          = link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'ui item'
+      - else
+        .item
+          = link_to root_path do
+            = image_tag 'peeyr.png', class: 'ui tiny image'
+        .right.menu
+          = link_to 'Sign Up', new_user_registration_path, { class: 'ui item' }
+          = link_to 'Sign In', new_user_session_path, { class: 'ui item' }
     .ui.center.aligned.container
       = yield

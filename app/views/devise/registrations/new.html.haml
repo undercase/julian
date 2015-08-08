@@ -1,10 +1,15 @@
-%h2.ui.header Sign up
+%h2.ui.header Sign Up as Tutor
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "ui form" }) do |f|
   = devise_error_messages!
   .ui.grid{style: "max-width: 400px; margin: auto;"}
     .row.field
       .sixteen.wide.column
         = f.email_field :email, autofocus: true, placeholder: 'Email'
+    .row.two.fields
+      .field
+        = f.text_field :first_name, placeholder: 'First Name'
+      .field
+        = f.text_field :last_name, placeholder: 'Last Name'
     .row.field
       .sixteen.wide.column
         = f.password_field :password, autocomplete: "off", placeholder: 'Password (8 Characters Minimum)'

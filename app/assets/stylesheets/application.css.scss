@@ -23,6 +23,11 @@ body {
   background: linear-gradient(45deg, rgba(219,51,64,1) 0%, rgba(255,113,117,1) 100%); /* w3c */
 }
 
+.row.two.fields {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 .ui.menu a.ui.item {
   color: #FF7175;
   font-size: 1.25em;
@@ -41,5 +46,6 @@ a:hover {
 }
 
 .middle.aligned.column .ui.checkbox label {
+  cursor: pointer;
   color: #fff;
 }
