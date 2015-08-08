@@ -3,6 +3,10 @@ $ ->
     .transition
       animation: 'scale',
       duration: '2s'
+  $('.ui.masthead.segment .ui.inverted.learn.more.button').click ->
+    $('html, body').animate {
+      scrollTop: $('.ui.features.segment').offset().top
+    }, 1000
   $('.ui.mockup.segment .column')
     .visibility
       onBottomVisible: (calculations) ->

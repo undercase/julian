@@ -6,7 +6,7 @@
     - if @questions.length > 0
       .row
         .column
-          .ui.three.cards
+          .ui.three.stackable.cards
             - @questions.each do |question|
               %a.ui.card{href: question_path(question.id)}
                 .content
