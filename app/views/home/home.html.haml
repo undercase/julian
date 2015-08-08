@@ -5,7 +5,7 @@
     .transition.hidden.column
       %h1.center.aligned.ui.header <span class="white boxed">Peeyr</span> Instant
       %h2.center.aligned.ui.header Blazingly Fast, Insanely Easy Tutoring
-      %a.ui.inverted.button{href: "#features"}
+      %a.ui.inverted.learn.more.button
         %i.angle.down.icon
         Learn More
       = link_to new_user_registration_path, class: 'ui inverted button' do
@@ -26,7 +26,7 @@
           .field
             %input{type: "text", placeholder: "(777)-777-7777"}
           .actions
-            .ui.red.basic.button Let's Go
+            .ui.inverted.red.button Let's Go
 .ui.mockup.segment
   .ui.container
     .ui.middle.aligned.two.column.grid

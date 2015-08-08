@@ -10,7 +10,8 @@
     .ui.menu
       - if user_signed_in?
         .item
-          = image_tag 'peeyr.png', class: 'ui tiny image'
+          = link_to root_path do
+            = image_tag 'peeyr.png', class: 'ui tiny image'
         = link_to 'Open Questions', questions_path, { class: 'ui item' }
         - if @current_question
           = link_to 'Your Question', write_question_path(@current_question.id), { class: 'ui item' }
