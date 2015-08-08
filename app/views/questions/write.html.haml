@@ -11,5 +11,6 @@
             %h3.ui.header Answer
             = f.text_area :answer
           = f.submit "Answer Question", class: "ui inverted red button"
-          .ui.horizontal.divider{style: 'max-width: 200px; margin: auto; margin-top: 1rem; margin-bottom: 1rem;'} Or
+          %br/
+          %br/
         = button_to 'Unclaim Question', cancel_question_path(@current_question.id), method: :delete, class: "ui inverted red button"

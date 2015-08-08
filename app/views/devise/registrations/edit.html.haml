@@ -1,4 +1,4 @@
-%h2.ui.header Edit Account
+%h2.ui.header Edit Tutor Account
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "ui form", method: :put }) do |f|
   = devise_error_messages!
   .ui.grid{style: "max-width: 400px; margin: auto;"}
@@ -9,6 +9,11 @@
       .row.middle.aligned.field
         .column
           %h3.ui.header Currently waiting confirmation for: #{resource.unconfirmed_email}
+    .row.two.fields
+      .field
+        = f.text_field :first_name, placeholder: 'First Name'
+      .field
+        = f.text_field :last_name, placeholder: 'Last Name'
     .row.middle.aligned.field
       .sixteen.wide.column
         = f.password_field :password, autocomplete: "off", placeholder: 'Password'

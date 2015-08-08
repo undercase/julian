@@ -1,0 +1,42 @@
+.ui.masthead.segment
+  = image_tag 'background.jpg', class: 'background'
+  .gradient
+  .ui.container.center.aligned.one.column.grid
+    .transition.hidden.column
+      %h1.center.aligned.ui.header <span class="white boxed">Peeyr</span> Instant
+      %h2.center.aligned.ui.header Blazingly Fast, Insanely Easy Tutoring
+      %a.ui.inverted.button{href: "#features"}
+        %i.angle.down.icon
+        Learn More
+      = link_to new_user_registration_path, class: 'ui inverted button' do
+        Become a Tutor
+        %i.angle.right.icon
+.ui.features.segment#features
+  .ui.container.vertically.divided.grid
+    .row
+      .column
+        %h1.center.aligned.ui.header Get Homework Help <span class="red boxed">Now</span>
+        %h2.center.aligned.ui.header Text me at
+        %h1.center.aligned.phone.number (817)-567-2396
+    .row
+      .column
+        %h2.center.aligned.ui.header Or we'll hit you up at
+        %br/
+        .ui.center.aligned.form
+          .field
+            %input{type: "text", placeholder: "(777)-777-7777"}
+          .actions
+            .ui.red.basic.button Let's Go
+.ui.mockup.segment
+  .ui.container
+    .ui.middle.aligned.two.column.grid
+      .column
+        %h1.center.aligned.ui.header Start Using <span class="white boxed">Peeyr</span>
+        %br/
+        %br/
+        %h1.ui.transition.hidden.first.step.header <span class="number">1</span>&nbsp;&nbsp;Say hi
+        %h1.ui.transition.hidden.second.step.header <span class="number">2</span>&nbsp;&nbsp;Ask a question
+        %h1.ui.transition.hidden.third.step.header <span class="number">3</span>&nbsp;&nbsp;Get an answer
+      .column
+        .ui.fluid.image
+          = image_tag 'iphone.png'

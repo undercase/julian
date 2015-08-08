@@ -2,7 +2,7 @@
 %html
   %head
     %meta{content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type'}/
-    %title Result - Easy HW Help
+    %title Peeyr Instant
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = stylesheet_link_tag 'questions', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
@@ -12,7 +12,6 @@
     .ui.menu
       .item
         = image_tag 'peeyr.png', class: 'ui tiny image'
-      = link_to 'Result', root_path, { class: 'ui item' }
       = link_to 'Open Questions', questions_path, { class: 'ui item' }
       - if @current_question
         = link_to 'Your Question', write_question_path(@current_question.id), { class: 'ui item' }

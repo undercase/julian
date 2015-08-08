@@ -1,3 +1,191 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  background: #fff;
+}
+
+.white.boxed {
+  padding: 0.4rem;
+  border: 5px solid #fff;
+}
+
+.red.boxed {
+  padding: 0.4rem;
+  border: 5px solid #FF7175;
+}
+
+.number {
+  border-radius: 100%;
+  border: 5px solid #fff;
+  padding-left: 1.1rem;
+  padding-right: 1.1rem;
+}
+
+.ui.menu {
+  margin-bottom: 0;
+}
+
+.ui.segment {
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.ui.masthead.segment {
+  color: #fff;
+
+  height: 100vh;
+  margin-top: 0;
+}
+
+.ui.masthead.segment .background {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  background-position: center center;
+  background-size: contain;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.ui.masthead.segment .gradient {
+  background: -moz-linear-gradient(45deg, rgba(255,113,117,0.8) 0%, rgba(184,57,74,0.8) 100%); /* ff3.6+ */
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(255,113,117,0.8)), color-stop(100%, rgba(184,57,74,0.8))); /* safari4+,chrome */
+  background: -webkit-linear-gradient(45deg, rgba(255,113,117,0.8) 0%, rgba(184,57,74,0.8) 100%); /* safari5.1+,chrome10+ */
+  background: -o-linear-gradient(45deg, rgba(255,113,117,0.8) 0%, rgba(184,57,74,0.8) 100%); /* opera 11.10+ */
+  background: -ms-linear-gradient(45deg, rgba(255,113,117,0.8) 0%, rgba(184,57,74,0.8) 100%); /* ie10+ */
+  background: linear-gradient(45deg, rgba(255,113,117,0.8) 0%, rgba(184,57,74,0.8) 100%); /* w3c */
+  
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+}
+
+
+.ui.masthead.segment .ui.container {
+  z-index: 3;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-bottom: 2rem;
+}
+
+.ui.masthead.segment h1.ui.header {
+  color: inherit;
+  font-size: 4em;
+}
+
+.ui.masthead.segment h2.ui.header {
+  color: inherit;
+  font-size: 3em;
+}
+
+.ui.masthead.segment .ui.inverted.button {
+  font-size: 1.5em;
+  margin-bottom: 1rem;
+}
+
+.ui.masthead.segment .ui.inverted.button:hover i {
+  color: #000;
+}
+
+.ui.features.segment {
+  color: #FF7175;
+}
+
+.ui.features.segment .row {
+  padding: 5rem 0;
+}
+
+.ui.features.segment h1.ui.header {
+  color: inherit;
+  font-size: 3.5em;
+}
+
+.ui.features.segment h2.ui.header {
+  color: inherit;
+  font-size: 3em;
+  margin-bottom: 0;
+}
+
+.ui.features.segment h1.phone.number {
+  font-size: 5rem;
+  margin-top: 0;
+  text-align: center;
+  cursor: pointer;
+  margin: auto;
+}
+
+.ui.features.segment h1.phone.number:hover {
+  text-decoration: underline;
+}
+
+.ui.features.segment .field, .ui.features.segment .actions {
+  text-align: center;
+}
+
+.ui.features.segment input {
+  color: #FF7175;
+  font-size: 3em;
+  max-width: 390px;
+  margin: auto;
+}
+
+.ui.features.segment input:focus {
+  color: #FF7175;
+}
+
+.ui.features.segment .ui.button {
+  font-size: 2em;
+}
+
+.ui.features.segment {
+  input::-webkit-input-placeholder {
+    color: #F79C9E;
+  }
+
+  input:-moz-placeholder {
+    color: #F79C9E;
+  }
+
+  input::-moz-placeholder {
+    color: #F79C9E;
+  }
+
+  input::-ms-input-placeholder {
+    color: #F79C9E;
+  }
+}
+
+.ui.mockup.segment {
+  background: #FF7175;
+  color: #fff;
+}
+
+.ui.mockup.segment .column {
+  min-height: 392px;
+}
+
+.ui.mockup.segment h1.ui.header {
+  color: inherit;
+  font-size: 4em;
+}
+
+.ui.mockup.segment h1.ui.step.header {
+  margin-left: 2rem;
+  font-size: 3.5em;
+}
+
+.ui.mockup.segment h2.ui.header {
+  color: inherit;
+}
