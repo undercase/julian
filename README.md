@@ -1,2 +1,2 @@
-# Peeyr Instant
-Awesome homework question and answer application.
+# julian
+julian | easy on-demand tutoring
