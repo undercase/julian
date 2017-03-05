@@ -1,7 +1,18 @@
 require 'twilio-ruby'
 
 class TextController < TwilioController
-  skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token, except: [:start]
+
+  def start
+    account_sid = "AC012d54c42630a38d4c690396eacfedb3"
+    from = "+15084449679"
+    auth_token = "1275a64353e473cb11072470ce456176"
+    body = "Hi - I'm Julian, your on demand tutor! Text me at this number to get instant homework help."
+
+    client = Twilio::REST::Client.new account_sid, auth_token
+    client.messages.create(body: body, to: params[:To].to_s, from: from)
+    redirect_to root_path
+  end
   def text
     asker = Asker.find_by(number: params[:From].to_s)
     if asker
