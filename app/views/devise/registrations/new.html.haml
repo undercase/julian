@@ -1,29 +1,38 @@
-
+:css
+  body {
+    height: 100vh;
+  }
 %style
   body{
   background-color: white;
   }
 
-.centered
-  %h2.center.logo.header Tutor
-  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+.centered.session
+  .container
+    %h2.center.logo.header Tutor
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      %label{:for => 'first_name', style: 'color:#FF4C65;'}
+        First Name
+      .input-field
+        = f.text_field :first_name
 
-    %label{:for => 'first_name', style: 'color:#FF4C65;'}
-      First Name
-    = f.text_field :first_name
+      %label{:for => 'last_name', style: 'color:#FF4C65;'}
+        Last Name
+      .input-field
+        = f.text_field :last_name
 
-    %label{:for => 'last_name', style: 'color:#FF4C65;'}
-      Last Name
-    = f.text_field :last_name
+      %label{:for => 'email', style: 'color:#FF4C65;'}
+        Email
+      .input-field
+        = f.email_field :email, autofocus: true
 
-    %label{:for => 'email', style: 'color:#FF4C65;'}
-      Email
-    = f.email_field :email, autofocus: true
+      %label{:for => 'password', style: 'color:#FF4C65;'}
+        Password
+      .input-field
+        = f.password_field :password, autocomplete: "off"
 
-    %label{:for => 'password', style: 'color:#FF4C65;'}
-      Password
-    = f.password_field :password, autocomplete: "off"
-    %label{:for => 'password_confirmation', style: 'color:#FF4C65;'}
-      Password Confirmation
-    = f.password_field :password_confirmation, autocomplete: "off"
-    = f.submit 'Log in', class: 'center-align btn waves-effect waves-light', style: 'width: 100%; margin-bottom: 1rem;'
+      %label{:for => 'password_confirmation', style: 'color:#FF4C65;'}
+        Password Confirmation
+      .input-field
+        = f.password_field :password_confirmation, autocomplete: "off"
+      = f.submit 'Log in', class: 'center-align btn waves-effect waves-light', style: 'width: 100%; margin-bottom: 1rem;'
