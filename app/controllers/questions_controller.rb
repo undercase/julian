@@ -49,9 +49,9 @@ class QuestionsController < ApplicationController
       @question.answered = true
       @question.save
 
-      account_sid = "AC012d54c42630a38d4c690396eacfedb3"
+      account_sid = "SK64c2062624df14b34a7b5f52ef6a449b"
       from = "+15084449679"
-      auth_token = "1275a64353e473cb11072470ce456176"
+      auth_token = "OE4l7r2cepXPd9tOILDQF9g4dJdea3Xx"
 
       client = Twilio::REST::Client.new account_sid, auth_token
       client.account.sms.messages.create(body: @question.answer, to: @question.number, from: from)

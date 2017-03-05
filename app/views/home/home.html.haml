@@ -1,56 +1,14 @@
 .masthead
   .container
     .row
-      .col.s6.right-align
+      .col.m6.s12.right-align
         %h1.right-align.header julian
         %h4.right-align.header effortless instant tutoring
-        .row.col.s8.right-align
-          .input-field.col.s6.right-align
-            %input{id: 'phone_number', type: 'text'}
-            %label{for: 'phone_number'} (123) 456-7890
-          .waves-effect.waves-light.white.btn.col.s4.right-align Get started
-      .col.s6
+        = form_tag send_url, method: :post do
+          .input-field
+            %input{name: 'To', id: 'phone_number', type: 'text'}
+            %label{for: 'phone_number'} Phone number
+          %button.waves-effect.waves-light.white.btn Get started
+        %p.right-align or text <b>(508) 444-9679</b>
+      .col.m6.hide-on-small-only
         = image_tag 'iphone.png'
--#
-  .gradient
-    .ui.container.center.aligned.one.column.grid
-      .transition.hidden.column
-        %h1.center.aligned.ui.header <span class="white boxed">Peeyr</span> Instant
-        %h2.center.aligned.ui.header Blazingly Fast, Insanely Easy Tutoring
-        %a.ui.inverted.learn.more.button
-          %i.angle.down.icon
-          Learn More
-        = link_to new_user_registration_path, class: 'ui inverted button' do
-          Become a Tutor
-          %i.angle.right.icon
--#
-  .ui.features.segment#features
-    .ui.container.vertically.divided.grid
-      .row
-        .column
-          %h1.center.aligned.ui.header Get Homework Help <span class="red boxed">Now</span>
-          %h2.center.aligned.ui.header Text me at
-          %h1.center.aligned.phone.number (817)-567-2396
-      .row
-        .column
-          %h2.center.aligned.ui.header Or we'll hit you up at
-          %br/
-          .ui.center.aligned.form
-            .field
-              %input{type: "text", placeholder: "(777)-777-7777"}
-            .actions
-              .ui.inverted.red.button Let's Go
--#
-  .ui.mockup.segment
-    .ui.container
-      .ui.middle.aligned.two.column.grid
-        .column
-          %h1.center.aligned.ui.header Start Using <span class="white boxed">Peeyr</span>
-          %br/
-          %br/
-          %h1.ui.transition.hidden.first.step.header <span class="number">1</span>&nbsp;&nbsp;Say hi
-          %h1.ui.transition.hidden.second.step.header <span class="number">2</span>&nbsp;&nbsp;Ask a question
-          %h1.ui.transition.hidden.third.step.header <span class="number">3</span>&nbsp;&nbsp;Get an answer
-        .column
-          .ui.fluid.image
-            = image_tag 'iphone.png'

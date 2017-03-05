@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   # Texting
   post 'text' => 'text#text'
+  post 'start' => 'text#start', as: 'send'
 
   # Tutors
   get 'questions' => 'questions#index', as: :questions
