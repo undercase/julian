@@ -12,9 +12,8 @@
         = link_to 'View Questions', questions_path
 .questions.container
   .row
+    %h4.center.header Open Questions
     - if @questions.length > 0
-      .col.s12.card
-        %h4.center.header Open Questions
       - @questions.each do |question|
         .col.s4
           .card
@@ -24,6 +23,4 @@
             .card-action
               = link_to 'Claim this question', claim_question_path(question.id), method: :post
     - else
-      .col.s12.card
-        %h4.center.header Open Questions
-        %h5.header.center <i>There are no questions available right now - check back later</i>
+      %h5.header.center <i>There are no questions available right now - check back later</i>

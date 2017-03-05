@@ -29,8 +29,10 @@ nav {
     display: inline-block;
   }
 
-  .col.s12.card {
+  .col.s12 .card {
     margin-top: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
   }
 
   .card {
