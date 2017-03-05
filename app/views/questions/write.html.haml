@@ -1,16 +1,10 @@
-.ui.center.aligned.segment
-  .ui.vertically.divided.grid
-    .row
-      .column
-        %h1.center.aligned.ui.header= @current_question.question
-        %h3.center.aligned.ui.header Asked by #{@current_question.number}
-    .row
-      .column
-        = form_for @current_question, as: :question, url: answer_question_path(@current_question.id), method: :post, html: { class: "ui form" } do |f|
-          .field
-            %h3.ui.header Answer
-            = f.text_area :answer
-          = f.submit "Answer Question", class: "ui inverted red button"
-          %br/
-          %br/
-        = button_to 'Unclaim Question', cancel_question_path(@current_question.id), method: :delete, class: "ui inverted red button"
+.questions.container
+  %h4.header You're answering: #{@current_question.question}
+  %h5.header <i>Asked #{time_ago_in_words(@current_question.created_at)} ago by #{@current_question.number}</i>
+  = form_for @current_question, as: :question, url: answer_question_path(@current_question.id), method: :post, html: { class: 'center' } do |f|
+    .input-field
+      = f.text_area :answer, id: 'answer', class: 'materialize-textarea'
+      %label{for: 'answer'} Type your answer here
+  .row.center
+    %input.waves-effect.waves-light.btn{type: 'submit', value: "Answer question", onclick: 'document.forms[0].submit();'}
+    = button_to 'Unclaim question', cancel_question_path(@current_question.id), method: :delete, class: 'waves-effect waves-light btn'

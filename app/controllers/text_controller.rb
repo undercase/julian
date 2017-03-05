@@ -24,12 +24,12 @@ class TextController < TwilioController
         asker.answer = nil
         asker.save
       elsif asker.question
-        response = create_response("Please wait patiently for the answer to your question! We're working on it right now.")
+        response = create_response("Please wait patiently for the answer to your question! I'm working on it right now.")
       else
         if params[:Body][-1] == "?"
           asker.question = params[:Body]
           asker.ready = true
-          response = create_response("We've received your question, \"#{params[:Body]}\". My team is working on answering it as I type this.")
+          response = create_response("I've received your question, \"#{params[:Body]}\". I'm working on finding the answer right now.")
           asker.save
         else
           response = create_response("If you're asking a question, make sure it ends with '?'!")
@@ -37,7 +37,7 @@ class TextController < TwilioController
       end
     elsif params[:From]
       Asker.create(number: params[:From].to_s)
-      response = create_response("Hi! I'm your friendly homework question explanation service. Just text me a question with a '?' at the end, and my crack team of tutors will answer it as fast as possible.")
+      response = create_response("Hi! My name's Julian - I'm your personal homework tutor. Just text me a question ending with a '?' at the end, and I'll answer it ASAP.")
     end
     render text: response
   end

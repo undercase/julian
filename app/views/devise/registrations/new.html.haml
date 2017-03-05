@@ -1,29 +1,23 @@
-
-%style
-  body{
-  background-color: white;
-  }
-
-.centered
-  %h2.center.logo.header Tutor
-  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-
-    %label{:for => 'first_name', style: 'color:#FF4C65;'}
-      First Name
-    = f.text_field :first_name
-
-    %label{:for => 'last_name', style: 'color:#FF4C65;'}
-      Last Name
-    = f.text_field :last_name
-
-    %label{:for => 'email', style: 'color:#FF4C65;'}
-      Email
-    = f.email_field :email, autofocus: true
-
-    %label{:for => 'password', style: 'color:#FF4C65;'}
-      Password
-    = f.password_field :password, autocomplete: "off"
-    %label{:for => 'password_confirmation', style: 'color:#FF4C65;'}
-      Password Confirmation
-    = f.password_field :password_confirmation, autocomplete: "off"
-    = f.submit 'Log in', class: 'center-align btn waves-effect waves-light', style: 'width: 100%; margin-bottom: 1rem;'
+.centered.session
+  .container
+    = link_to root_path do
+      %h2.logo.header Tutor
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      .row
+        .input-field.col.s6
+          = f.text_field :first_name, autofocus: true
+          %label{:for => 'first_name'} First Name
+        .input-field.col.s6
+          = f.text_field :last_name
+          %label{:for => 'last_name'} Last Name
+      .input-field
+        = f.email_field :email
+        %label{:for => 'email'} Email
+      .input-field
+        = f.password_field :password, autocomplete: "off"
+        %label{:for => 'password'} Password
+      .input-field
+        = f.password_field :password_confirmation, autocomplete: "off"
+        %label{:for => 'password_confirmation'} Password Confirmation
+      = f.submit 'Start tutoring', class: 'center-align btn waves-effect waves-light', style: 'width: 100%; margin-bottom: 1rem;'
+      = link_to 'log in', new_user_session_path

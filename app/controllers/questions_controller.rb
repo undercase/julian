@@ -6,11 +6,9 @@ class QuestionsController < ApplicationController
   def index
     @current_question = current_user.questions.find_by(ready: true)
     @questions = Asker.where(ready: true, claimed: false).order(updated_at: :desc).limit(10)
-  end
-  def show
-    @current_question = current_user.questions.find_by(ready: true)
-    @question = Asker.find(params[:id])
-    redirect_to questions_path unless @question
+    if @current_question
+      redirect_to write_question_path(@current_question.id)
+    end
   end
   def claim
     @current_question = current_user.questions.find_by(ready: true)
@@ -49,12 +47,13 @@ class QuestionsController < ApplicationController
       @question.answered = true
       @question.save
 
-      account_sid = "SK64c2062624df14b34a7b5f52ef6a449b"
+      account_sid = "AC012d54c42630a38d4c690396eacfedb3"
       from = "+15084449679"
-      auth_token = "OE4l7r2cepXPd9tOILDQF9g4dJdea3Xx"
+      body = "The answer is #{@question.answer}"
+      auth_token = "1275a64353e473cb11072470ce456176"
 
       client = Twilio::REST::Client.new account_sid, auth_token
-      client.account.sms.messages.create(body: @question.answer, to: @question.number, from: from)
+      client.account.sms.messages.create(body: body, to: @question.number, from: from)
       current_user.questions.delete(@question)
       redirect_to questions_path
     else

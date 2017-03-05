@@ -1,6 +1,7 @@
 .centered.session
   .container
-    %h2.logo.header Julian
+    = link_to root_path do
+      %h2.logo.header Julian
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .input-field
         = f.email_field :email, autofocus: true, id: 'email'

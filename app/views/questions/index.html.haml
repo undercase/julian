@@ -1,18 +1,19 @@
-.ui.center.aligned.segment
-  .ui.vertically.divided.grid
-    .row
-      .column
-        %h1.ui.center.aligned.header Open Questions
+.questions.container
+  .row.valign-wrapper
+    .col.s6
+      %h4.header Open Questions
+    .col.s6.right-align
+      = link_to destroy_user_session_path, method: :delete do
+        .waves-effect.waves-light.btn.right-align Log Out
+  .row
     - if @questions.length > 0
-      .row
-        .column
-          .ui.three.stackable.cards
-            - @questions.each do |question|
-              %a.ui.card{href: question_path(question.id)}
-                .content
-                  .question.header= question.question
-                  .meta Asked by #{question.number}
+      - @questions.each do |question|
+        .col.s4
+          .card
+            .card-content
+              %span.card-title= question.question
+              %p Asked <b>#{time_ago_in_words(question.created_at)}</b> ago
+            .card-action
+              = link_to 'Claim this question', claim_question_path(question.id), method: :post
     - else
-      .row
-        .column
-          %h3.ui.center.aligned.header There are no questions available! Reload the page to check for more.
+      %h5.header.center.col.s12 There are no questions available right now - check back later
