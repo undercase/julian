@@ -1,23 +1,29 @@
-%h2.ui.header Sign Up as Tutor
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "ui form" }) do |f|
-  = devise_error_messages!
-  .ui.grid{style: "max-width: 400px; margin: auto;"}
-    .row.field
-      .sixteen.wide.column
-        = f.email_field :email, autofocus: true, placeholder: 'Email'
-    .row.two.fields
-      .field
-        = f.text_field :first_name, placeholder: 'First Name'
-      .field
-        = f.text_field :last_name, placeholder: 'Last Name'
-    .row.field
-      .sixteen.wide.column
-        = f.password_field :password, autocomplete: "off", placeholder: 'Password (8 Characters Minimum)'
-    .row.field
-      .sixteen.wide.column
-        = f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Confirm Password'
-  .actions
-    %br
-    = f.submit "Sign up", class: "ui inverted button"
-%br
-= render "devise/shared/links"
+
+%style
+  body{
+  background-color: white;
+  }
+
+.centered
+  %h2.center.logo.header Tutor
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+
+    %label{:for => 'first_name', style: 'color:#FF4C65;'}
+      First Name
+    = f.text_field :first_name
+
+    %label{:for => 'last_name', style: 'color:#FF4C65;'}
+      Last Name
+    = f.text_field :last_name
+
+    %label{:for => 'email', style: 'color:#FF4C65;'}
+      Email
+    = f.email_field :email, autofocus: true
+
+    %label{:for => 'password', style: 'color:#FF4C65;'}
+      Password
+    = f.password_field :password, autocomplete: "off"
+    %label{:for => 'password_confirmation', style: 'color:#FF4C65;'}
+      Password Confirmation
+    = f.password_field :password_confirmation, autocomplete: "off"
+    = f.submit 'Log in', class: 'center-align btn waves-effect waves-light', style: 'width: 100%; margin-bottom: 1rem;'
