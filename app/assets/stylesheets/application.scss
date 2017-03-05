@@ -11,9 +11,9 @@
  * file per style scope.
  *
  *= require_self
- *= require application
+ *= require_tree .
  */
 @import "materialize/components/color";
-//$primary-color: color("blue", "lighten-2") !default;
-//$secondary-color: color("yellow", "base") !default;
+$primary-color: #FF4C65 !default;
+$secondary-color: #FF4C65 !default;
 @import 'materialize';
