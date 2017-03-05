@@ -3,18 +3,38 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $primary-color: #FF4C65 !default;
 
-.centered {
-  width: 15%;
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-}
-
 .logo {
   font-family: 'Pacifico';
+}
+
+body {
+  width: 100%;
+}
+
+.centered {
+  width: 100%;
+  height: 100% !important;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.session {
+  .container {
+    max-width: 300px;
+    .header {
+      color: $primary-color;
+    }
+    .btn {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+    .remember_me {
+      text-align: center;
+    }
+  }
 }
 
 .masthead {
@@ -94,8 +114,54 @@ $primary-color: #FF4C65 !default;
    }
 
    p {
-     margin-top: -10px;
-     opacity: 0.7;
+     @media screen and (min-width: 760px) {
+       margin-top: -10px;
+     }
+     .lowpacity {
+       opacity: 0.7;
+     }
    }
+
+   @media screen and (max-width: 600px) {
+     img {
+       display: none;
+     }
+     text-align: center;
+     .col {
+       text-align: center;
+       .header {
+         text-align: center;
+       }
+     }
+     p {
+       text-align: center;
+     }
+   }
+  }
+
+  p.bottom {
+    width: 100%;
+    color: #fff;
+    position: absolute;
+    bottom: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 10px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    a {
+      cursor: pointer;
+      color: #fff;
+      opacity: 0.7;
+      transition: opacity 0.2s ease-in-out;
+      &:hover {
+        opacity: 1;
+      }
+    }
   }
 }

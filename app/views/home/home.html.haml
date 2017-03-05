@@ -1,20 +1,19 @@
-:style
+:css
   body {
     background: #FF4C65;
-    width: 100%;
     height: 100vh;
   }
 .masthead
   .container
     .row
-      .col.s6.right-align
+      .col.m6.s12.right-align
         %h1.right-align.logo.header Julian
-        %h4.right-align.header effortless instant tutoring
         = form_tag send_url, method: :post do
           .input-field
             %input{name: 'To', id: 'phone_number', type: 'text'}
             %label{for: 'phone_number'} Phone number
           %button.waves-effect.waves-light.white.btn Get started
-        %p.right-align or text <b>(508) 444-9679</b>
-      .col.m6.hide-on-small-only
+        %p.right-align <span class="lowpacity">or text</span> <b>(508) 444-9679</b>
+      .col.m6
         = image_tag 'iphone.png'
+  %p.bottom <a>Register</a> to be a tutor or <a>sign in</a> to your dashboard
