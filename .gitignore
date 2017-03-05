@@ -12,3 +12,6 @@
 !/log/.keep
 /tmp
 *.swp
+
+database.yml
+secrets.yml
