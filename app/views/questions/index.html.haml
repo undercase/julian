@@ -1,12 +1,20 @@
+:css
+  body {
+    background: #FCFCFC;
+  }
+%nav
+  .container.nav-wrapper
+    = link_to 'Julian', root_path, class: 'brand logo'
+    %ul.right
+      %li
+        = link_to 'Log Out', destroy_user_session_path, method: :delete
+      %li
+        = link_to 'View Questions', questions_path
 .questions.container
-  .row.valign-wrapper
-    .col.s6
-      %h4.header Open Questions
-    .col.s6.right-align
-      = link_to destroy_user_session_path, method: :delete do
-        .waves-effect.waves-light.btn.right-align Log Out
   .row
     - if @questions.length > 0
+      .col.s12.card
+        %h4.center.header Open Questions
       - @questions.each do |question|
         .col.s4
           .card
@@ -16,4 +24,6 @@
             .card-action
               = link_to 'Claim this question', claim_question_path(question.id), method: :post
     - else
-      %h5.header.center.col.s12 There are no questions available right now - check back later
+      .col.s12.card
+        %h4.center.header Open Questions
+        %h5.header.center <i>There are no questions available right now - check back later</i>
