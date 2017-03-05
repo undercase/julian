@@ -1,8 +1,14 @@
+:style
+  body {
+    background: #FF4C65;
+    width: 100%;
+    height: 100vh;
+  }
 .masthead
   .container
     .row
-      .col.m6.s12.right-align
-        %h1.right-align.header julian
+      .col.s6.right-align
+        %h1.right-align.logo.header Julian
         %h4.right-align.header effortless instant tutoring
         = form_tag send_url, method: :post do
           .input-field
