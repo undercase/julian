@@ -33,7 +33,7 @@ class QuestionsController < ApplicationController
     current_user.questions.delete(@question)
     @question.claimed = false
     @question.save
-    
+
     redirect_to questions_path
   end
   def write
@@ -49,9 +49,9 @@ class QuestionsController < ApplicationController
       @question.answered = true
       @question.save
 
-      account_sid = "AC1265ded4c0a478a8b1326261c07df987"
-      from = "+18175672396"
-      auth_token = "e99c96068f12983414bb8b19308e4909"
+      account_sid = "AC012d54c42630a38d4c690396eacfedb3"
+      from = "+15084449679"
+      auth_token = "1275a64353e473cb11072470ce456176"
 
       client = Twilio::REST::Client.new account_sid, auth_token
       client.account.sms.messages.create(body: @question.answer, to: @question.number, from: from)
