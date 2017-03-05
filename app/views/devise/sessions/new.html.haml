@@ -1,18 +1,21 @@
-%h2.ui.header Log In as Tutor
-= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "ui form" }) do |f|
-  .ui.grid{style: 'max-width: 400px; margin: auto;'}
-    .row.field
-      .sixteen.wide.column
-        = f.email_field :email, autofocus: true, placeholder: 'Email'
-    .row.field
-      .sixteen.wide.column
-        = f.password_field :password, autocomplete: "off", placeholder: 'Password'
-    - if devise_mapping.rememberable?
-      .row.field
-        .middle.aligned.column
-          .ui.checkbox
-            = f.check_box :remember_me
-            = f.label :remember_me
-  .actions
-    = f.submit "Log in", class: "ui inverted button", style: "margin-bottom: 1rem;"
-= render "devise/shared/links"
+%style
+  body{
+  background-color: white;
+  }
+.centered
+  %h2.center.aligned.logo.header{style:'color: #FF4C65;'} Julian
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .ui.grid{style: 'max-width: 400px; margin: auto;'}
+      %label{:for => 'email', style: 'color:#FF4C65;'}
+        Email
+      = f.email_field :email, autofocus: true, placeholder: '', id: 'email'
+      %label{:for => 'Password', style: 'color:#FF4C65;'}
+        Password
+      = f.password_field :password, autocomplete: 'off', placeholder: ''
+      = f.submit 'Log in', class: 'center-align btn waves-effect waves-light', style: 'width: 100%; margin-bottom: 1rem;'
+
+      - if devise_mapping.rememberable?
+        .div{style:'margin-botton:1rem;'}
+          = f.check_box :remember_me
+          = f.label :remember_me
+          /= render 'devise/shared/links'
