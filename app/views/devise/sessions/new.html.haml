@@ -3,19 +3,18 @@
   background-color: white;
   }
 .centered
-  %h2.center.aligned.logo.header{style:'color: #FF4C65;'} Julian
+  %h2.center.logo.header{style:'color: #FF4C65;'} Login
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    .ui.grid{style: 'max-width: 400px; margin: auto;'}
-      %label{:for => 'email', style: 'color:#FF4C65;'}
-        Email
-      = f.email_field :email, autofocus: true, placeholder: '', id: 'email'
-      %label{:for => 'Password', style: 'color:#FF4C65;'}
-        Password
-      = f.password_field :password, autocomplete: 'off', placeholder: ''
-      = f.submit 'Log in', class: 'center-align btn waves-effect waves-light', style: 'width: 100%; margin-bottom: 1rem;'
+    %label{:for => 'email', style: 'color:#FF4C65;'}
+      Email
+    = f.email_field :email, autofocus: true, placeholder: '', id: 'email'
+    %label{:for => 'Password', style: 'color:#FF4C65;'}
+      Password
+    = f.password_field :password, autocomplete: 'off', placeholder: ''
+    = f.submit 'Log in', class: 'center-align btn waves-effect waves-light', style: 'width: 100%; margin-bottom: 1rem;'
 
-      - if devise_mapping.rememberable?
-        .div{style:'margin-botton:1rem;'}
-          = f.check_box :remember_me
-          = f.label :remember_me
-          /= render 'devise/shared/links'
+    - if devise_mapping.rememberable?
+      .div{style:'margin-botton:1rem;'}
+        = f.check_box :remember_me
+        = f.label :remember_me
+        /= render 'devise/shared/links'
